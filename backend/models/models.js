@@ -9,9 +9,6 @@ let primaryDataSchema = new Schema({
         type: String,
         require: true
     },
-    middleName: {
-        type: String,
-    },
     lastName: {
         type: String,
         required: true
@@ -19,7 +16,7 @@ let primaryDataSchema = new Schema({
     email: {
         type: String
     },
-    phoneNumbers: {
+    phoneNumber: {
         type: Array,
         required: true
     },
@@ -27,20 +24,20 @@ let primaryDataSchema = new Schema({
         line1: {
             type: String
         },
-        line2: {
-            type: String,
-        },
         city: {
             type: String,
             required: true
         },
-        county: {
+        state: {
             type: String,
         },
         zip: {
             type: String,
         }
-    }
+    },
+    orgID: {
+        type: String
+    },
 }, {
     collection: 'primaryData',
     timestamps: true
@@ -53,9 +50,6 @@ let eventDataSchema = new Schema({
         type: String,
         require: true
     },
-    services: {
-        type: Array
-    },
     date: {
         type: Date,
         required: true
@@ -63,9 +57,6 @@ let eventDataSchema = new Schema({
     address: {
         line1: {
             type: String
-        },
-        line2: {
-            type: String,
         },
         city: {
             type: String,
@@ -82,14 +73,17 @@ let eventDataSchema = new Schema({
     },
     attendees: [{
         type: String
-    }]
+    }],
+    orgID: {
+        type: String
+    },
 }, {
     collection: 'eventData'
 });
 
 //collection for orgData
 let orgDataSchema = new Schema({
-    orgID: { type: String, default: uuid.v1 },
+    _id: { type: String, default: uuid.v1 },
     orgName: {
         type: String,
         require: true
