@@ -12,10 +12,11 @@ const app = express();
 app.use(cors({
   origin: '*'
 }));
+let uri = 'mongodb+srv://admin:Admin123!@cluster0.a6f0qsx.mongodb.net/test'
 
 //sets up mongoose for the mongoDB connection
 mongoose
-  .connect(process.env.MONGO_URL)
+  .connect(uri)
   .then(() => {
     console.log("Database connection Success!");
   })
