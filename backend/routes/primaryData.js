@@ -92,4 +92,18 @@ router.put("/:id", (req, res, next) => {
     );
 });
 
+//DELETE client by _id
+router.delete('/:id', (req, res, next) => {
+    primarydata.findOneAndRemove({ _id: req.params.id }, (error, data) => {
+        if (error) {
+            return next(error);
+        } else {
+            res.status(200).json({
+                msg
+                : data
+            });
+        }
+    });
+});
+
 module.exports = router;
