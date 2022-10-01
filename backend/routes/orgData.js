@@ -49,4 +49,19 @@ router.put("/:id", (req, res, next) => {
     );
 });
 
+// DELETE
+router.delete('/:id', (req, res, next) => {
+    orgdata.findOneAndRemove({ _id: req.params.id }, (error, data) => {
+        if (error) {
+            return next(error);
+        } else {
+            res.status(200).json({
+                msg
+                : data
+            });
+        }
+    });
+});
+
+
 module.exports = router;
