@@ -96,7 +96,7 @@ router.put("/:id", (req, res, next) => {
 
 //PUT add attendee to event
 router.put("/addAttendee/:id", (req, res, next) => {
-    //only add attendee if not yet signed uo
+    //only add attendee if not yet signed up
     eventdata.find( 
         { _id: req.params.id, attendees: req.body.attendee }, 
         (error, data) => { 
@@ -122,6 +122,20 @@ router.put("/addAttendee/:id", (req, res, next) => {
         }
     );
     
+});
+
+//DELETE an Event by _id
+router.delete('/:id', (req, res, next) => {
+    eventdata.findOneAndRemove({ _id: req.params.id }, (error, data) => {
+        if (error) {
+            return next(error);
+        } else {
+            res.status(200).json({
+                msg
+                : data
+            });
+        }
+    });
 });
 
 module.exports = router;
