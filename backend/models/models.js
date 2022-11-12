@@ -31,6 +31,9 @@ let primaryDataSchema = new Schema({
         state: {
             type: String,
         },
+        county: {
+            type: String,
+        },
         zip: {
             type: String,
         }
