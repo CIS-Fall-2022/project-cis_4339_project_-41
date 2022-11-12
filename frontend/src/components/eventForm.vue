@@ -204,6 +204,7 @@ export default {
           zip: "",
         },
         description: "",
+        attendees:"",
       },
     };
   },
@@ -231,6 +232,7 @@ export default {
               zip: "",
             },
               description: "",
+              attendees:"",
             };
             this.checkedServices = [];
           })
