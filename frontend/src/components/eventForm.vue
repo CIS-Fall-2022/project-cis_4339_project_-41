@@ -67,61 +67,6 @@
           <div></div>
           <div></div>
           <!-- form field -->
-          <div class="flex flex-col grid-cols-3">
-            <label>Services Offered at Event</label>
-            <div>
-              <label for="familySupport" class="inline-flex items-center">
-                <input
-                  type="checkbox"
-                  id="familySupport"
-                  value="Family Support"
-                  v-model="checkedServices"
-                  class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50"
-                  notchecked
-                />
-                <span class="ml-2">Family Support</span>
-              </label>
-            </div>
-            <div>
-              <label for="adultEducation" class="inline-flex items-center">
-                <input
-                  type="checkbox"
-                  id="adultEducation"
-                  value="Adult Education"
-                  v-model="checkedServices"
-                  class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50"
-                  notchecked
-                />
-                <span class="ml-2">Adult Education</span>
-              </label>
-            </div>
-            <div>
-              <label for="youthServices" class="inline-flex items-center">
-                <input
-                  type="checkbox"
-                  id="youthServices"
-                  value="Youth Services Program"
-                  v-model="checkedServices"
-                  class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50"
-                  notchecked
-                />
-                <span class="ml-2">Youth Services Program</span>
-              </label>
-            </div>
-            <div>
-              <label for="childhoodEducation" class="inline-flex items-center">
-                <input
-                  type="checkbox"
-                  id="childhoodEducation"
-                  value="Early Childhood Education"
-                  v-model="checkedServices"
-                  class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50"
-                  notchecked
-                />
-                <span class="ml-2">Early Childhood Education</span>
-              </label>
-            </div>
-          </div>
         </div>
 
         <!-- grid container -->
@@ -142,18 +87,6 @@
           <!-- form field -->
           <div class="flex flex-col">
             <label class="block">
-              <span class="text-gray-700">Address Line 2</span>
-              <input
-                type="text"
-                class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                placeholder
-                v-model="event.address.line2"
-              />
-            </label>
-          </div>
-          <!-- form field -->
-          <div class="flex flex-col">
-            <label class="block">
               <span class="text-gray-700">City</span>
               <input
                 type="text"
@@ -164,6 +97,18 @@
             </label>
           </div>
           <div></div>
+          <!-- form field -->
+          <div class="flex flex-col">
+            <label class="block">
+              <span class="text-gray-700">State</span>
+              <input
+                type="text"
+                class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                placeholder
+                v-model="event.address.state"
+              />
+            </label>
+          </div>
           <!-- form field -->
           <div class="flex flex-col">
             <label class="block">
@@ -188,7 +133,47 @@
               />
             </label>
           </div>
+          <div></div>
+          <div></div>
+          <div></div>
         </div>
+
+        <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10">
+          <h2 class="text-2xl font-bold">Organization</h2>
+          <!-- form field -->
+          <div class="flex flex-col">
+            <label class="block">
+              <span class="text-gray-700">Organization ID</span>
+              <input
+                type="text"
+                class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                placeholder
+                v-model="event.orgID"
+              />
+            </label>
+          </div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+
+        <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10">
+          <h2 class="text-2xl font-bold">Attendee</h2>
+          <!-- form field -->
+          <div class="flex flex-col">
+            <label class="block">
+              <span class="text-gray-700">Attendee ID</span>
+              <input
+                type="text"
+                class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                placeholder
+                v-model="event.attendees"
+              />
+            </label>
+          </div>
+        </div>
+
+
 
         <div class="flex justify-between mt-10 mr-20">
           <button class="bg-red-700 text-white rounded" type="submit">Add New Event</button>
@@ -210,12 +195,11 @@ export default {
       checkedServices: [],
       event: {
         eventName: "",
-        services: [],
         date: "",
         address: {
           line1: "",
-          line2: "",
           city: "",
+          state: "",
           county: "",
           zip: "",
         },
@@ -238,15 +222,14 @@ export default {
             this.$router.push("/findEvents");
             this.client = {
               eventName: "",
-              services: [],
               date: "",
               address: {
                 line1: "",
-                line2: "",
                 city: "",
+                state: "",
                 county: "",
-                zip: "",
-              },
+              zip: "",
+            },
               description: "",
             };
             this.checkedServices = [];
