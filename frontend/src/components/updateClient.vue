@@ -20,7 +20,6 @@ export default {
       // Client Data
       client: {
         firstName: "",
-        middleName: "",
         lastName: "",
         email: "",
         phoneNumbers: [
@@ -31,9 +30,8 @@ export default {
         ],
         address: {
           line1: "",
-          line2: "",
           city: "",
-          county: "",
+          state: "",
           zip: "",
         },
       },
@@ -53,7 +51,6 @@ export default {
       .then((resp) => {
         let data = resp.data[0];
         this.client.firstName = data.firstName;
-        this.client.middleName = data.middleName;
         this.client.lastName = data.lastName;
         this.client.email = data.email;
         this.client.phoneNumbers[0].primaryPhone =
@@ -61,9 +58,8 @@ export default {
         this.client.phoneNumbers[0].secondaryPhone =
           data.phoneNumbers[0].secondaryPhone;
         this.client.address.line1 = data.address.line1;
-        this.client.address.line2 = data.address.line2;
         this.client.address.city = data.address.city;
-        this.client.address.county = data.address.county;
+        this.client.address.state = data.address.state;
         this.client.address.zip = data.address.zip;
       });
     axios
@@ -99,6 +95,15 @@ export default {
       let apiURL = import.meta.env.VITE_ROOT_API + `/primarydata/${this.id}`;
       axios.put(apiURL, this.client).then(() => {
         alert("Update has been saved.");
+        this.$router.back().catch((error) => {
+          console.log(error);
+        });
+      });
+    },
+    handleClientDelete() {
+      let apiURL = import.meta.env.VITE_ROOT_API + `/primarydata/${this.id}`;
+      axios.delete(apiURL, this.client).then(() => {
+        alert("Client has been deleted.");
         this.$router.back().catch((error) => {
           console.log(error);
         });
@@ -170,19 +175,6 @@ export default {
                   :key="error.$uid"
                 >{{ error.$message }}!</p>
               </span>
-            </label>
-          </div>
-
-          <!-- form field -->
-          <div class="flex flex-col">
-            <label class="block">
-              <span class="text-gray-700">Middle Name</span>
-              <input
-                type="text"
-                class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                placeholder
-                v-model="client.middleName"
-              />
             </label>
           </div>
 
@@ -277,17 +269,6 @@ export default {
           <!-- form field -->
           <div class="flex flex-col">
             <label class="block">
-              <span class="text-gray-700">Address Line 2</span>
-              <input
-                type="text"
-                class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                v-model="client.address.line2"
-              />
-            </label>
-          </div>
-          <!-- form field -->
-          <div class="flex flex-col">
-            <label class="block">
               <span class="text-gray-700">City</span>
               <span style="color:#ff0000">*</span>
               <input
@@ -301,11 +282,11 @@ export default {
           <!-- form field -->
           <div class="flex flex-col">
             <label class="block">
-              <span class="text-gray-700">County</span>
+              <span class="text-gray-700">State</span>
               <input
                 type="text"
                 class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                v-model="client.address.county"
+                v-model="client.address.state"
               />
             </label>
           </div>
@@ -331,6 +312,13 @@ export default {
               type="submit"
               class="bg-red-700 text-white rounded"
             >Update Client</button>
+          </div>
+          <div class="flex justify-between mt-10 mr-20">
+            <button
+              @click="handleClientDelete"
+              type="submit"
+              class="bg-red-700 text-white rounded"
+            >Delete Client</button>
           </div>
           <div class="flex justify-between mt-10 mr-20">
             <button
