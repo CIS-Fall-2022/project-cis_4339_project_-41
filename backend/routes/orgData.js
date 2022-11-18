@@ -29,9 +29,6 @@ router.post("/", (req, res, next) => {
             }
         }
     );
-    orgdata.createdAt;
-    orgdata.updatedAt;
-    orgdata.createdAt instanceof Date;
 });
 
 //PUT update (make sure req body doesn't have the id)
@@ -63,5 +60,34 @@ router.delete('/:id', (req, res, next) => {
     });
 });
 
+//GET entries based on search query
+//Ex: '...?orgName=Food&searchBy=name' 
+router.get("/search/", (req, res, next) => { 
+    let dbQuery = "";
+    if (req.query["searchBy"] === 'name') {
+        dbQuery = { orgName: { $regex: `^${req.query["orgName"]}`, $options: "i" } }
+    };
+    orgdata.find( 
+        dbQuery, 
+        (error, data) => { 
+            if (error) {
+                return next(error);
+            } else {
+                res.json(data);
+            }
+        }
+    );
+});
+
+//GET single entry by ID
+router.get("/id/:id", (req, res, next) => { 
+    orgdata.find({ _id: req.params.id }, (error, data) => {
+        if (error) {
+            return next(error)
+        } else {
+            res.json(data)
+        }
+    })
+});
 
 module.exports = router;
