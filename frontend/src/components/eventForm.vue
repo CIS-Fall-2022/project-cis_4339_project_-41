@@ -10,7 +10,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10">
           <h2 class="text-2xl font-bold">Event Details</h2>
 
-          <!-- Event name form field -->
+          <!-- form field -->
           <div class="flex flex-col">
             <label class="block">
               <span class="text-gray-700">Event Name</span>
@@ -30,7 +30,7 @@
             </label>
           </div>
 
-          <!-- date form field -->
+          <!-- form field -->
           <div class="flex flex-col">
             <label class="block">
               <span class="text-gray-700">Date</span>
@@ -52,27 +52,40 @@
 
           <div></div>
           <div></div>
-          <!-- description form field -->
+          <!-- form field -->
           <div class="flex flex-col">
             <label class="block">
               <span class="text-gray-700">Description</span>
-              <textarea
+              <input
+                type="text"
                 class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                 rows="2"
-              ></textarea>
+                v-model="event.description"
+              />
+            </label>
+          </div>
+          <!-- form field -->
+          <div class="flex flex-col">
+            <label class="block">
+              <span class="text-gray-700">Organization ID</span>
+              <input
+                type="text"
+                class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                placeholder
+                v-model="event.orgID"
+              />
             </label>
           </div>
 
           <div></div>
           <div></div>
           <div></div>
-          <!-- form field -->
         </div>
 
         <!-- grid container -->
         <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10">
           <h2 class="text-2xl font-bold">Address</h2>
-          <!-- address 1 form field -->
+          <!-- form field -->
           <div class="flex flex-col">
             <label class="block">
               <span class="text-gray-700">Address Line 1</span>
@@ -84,7 +97,7 @@
               />
             </label>
           </div>
-          <!-- city form field -->
+          <!-- form field -->
           <div class="flex flex-col">
             <label class="block">
               <span class="text-gray-700">City</span>
@@ -97,7 +110,7 @@
             </label>
           </div>
           <div></div>
-          <!-- state form field -->
+          <!-- form field -->
           <div class="flex flex-col">
             <label class="block">
               <span class="text-gray-700">State</span>
@@ -109,19 +122,7 @@
               />
             </label>
           </div>
-          <!-- county form field -->
-          <div class="flex flex-col">
-            <label class="block">
-              <span class="text-gray-700">County</span>
-              <input
-                type="text"
-                class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                placeholder
-                v-model="event.address.county"
-              />
-            </label>
-          </div>
-          <!-- zip form field -->
+          <!-- form field -->
           <div class="flex flex-col">
             <label class="block">
               <span class="text-gray-700">Zip Code</span>
@@ -133,48 +134,8 @@
               />
             </label>
           </div>
-          <div></div>
-          <div></div>
-          <div></div>
         </div>
 
-        <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10">
-          <h2 class="text-2xl font-bold">Organization</h2>
-          <!-- org form field -->
-          <div class="flex flex-col">
-            <label class="block">
-              <span class="text-gray-700">Organization ID</span>
-              <input
-                type="text"
-                class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                placeholder
-                v-model="event.orgID"
-              />
-            </label>
-          </div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-
-        <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10">
-          <h2 class="text-2xl font-bold">Attendee</h2>
-          <!-- attendee form field -->
-          <div class="flex flex-col">
-            <label class="block">
-              <span class="text-gray-700">Attendee ID</span>
-              <input
-                type="text"
-                class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                placeholder
-                v-model="event.attendees"
-              />
-            </label>
-          </div>
-        </div>
-
-
-        <!--button to add new event to system-->
         <div class="flex justify-between mt-10 mr-20">
           <button class="bg-red-700 text-white rounded" type="submit">Add New Event</button>
         </div>
@@ -200,11 +161,10 @@ export default {
           line1: "",
           city: "",
           state: "",
-          county: "",
           zip: "",
         },
         description: "",
-        attendees:"",
+        orgID: "",
       },
     };
   },
@@ -228,11 +188,10 @@ export default {
                 line1: "",
                 city: "",
                 state: "",
-                county: "",
-              zip: "",
-            },
+                zip: "",
+              },
               description: "",
-              attendees:"",
+              orgID: "",
             };
             this.checkedServices = [];
           })
