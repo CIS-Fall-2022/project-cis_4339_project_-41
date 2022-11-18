@@ -12,6 +12,7 @@
             class="rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
             v-model="searchBy"
           >
+          <!-- query options -->
             <option value="Event Name">Event Name</option>
             <option value="Event Date">Event Date</option>
           </select>
@@ -40,6 +41,7 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10">
         <div></div>
         <div></div>
+        <!-- button to clear or search event data -->
         <div class="mt-5 grid-cols-2">
           <button
             class="mr-10 border border-red-700 bg-white text-red-700 rounded"

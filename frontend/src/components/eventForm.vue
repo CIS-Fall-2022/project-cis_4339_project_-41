@@ -10,7 +10,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10">
           <h2 class="text-2xl font-bold">Event Details</h2>
 
-          <!-- form field -->
+          <!-- Event name form field -->
           <div class="flex flex-col">
             <label class="block">
               <span class="text-gray-700">Event Name</span>
@@ -30,7 +30,7 @@
             </label>
           </div>
 
-          <!-- form field -->
+          <!-- date form field -->
           <div class="flex flex-col">
             <label class="block">
               <span class="text-gray-700">Date</span>
@@ -52,7 +52,7 @@
 
           <div></div>
           <div></div>
-          <!-- form field -->
+          <!-- description form field -->
           <div class="flex flex-col">
             <label class="block">
               <span class="text-gray-700">Description</span>
@@ -72,7 +72,7 @@
         <!-- grid container -->
         <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10">
           <h2 class="text-2xl font-bold">Address</h2>
-          <!-- form field -->
+          <!-- address 1 form field -->
           <div class="flex flex-col">
             <label class="block">
               <span class="text-gray-700">Address Line 1</span>
@@ -84,7 +84,7 @@
               />
             </label>
           </div>
-          <!-- form field -->
+          <!-- city form field -->
           <div class="flex flex-col">
             <label class="block">
               <span class="text-gray-700">City</span>
@@ -97,7 +97,7 @@
             </label>
           </div>
           <div></div>
-          <!-- form field -->
+          <!-- state form field -->
           <div class="flex flex-col">
             <label class="block">
               <span class="text-gray-700">State</span>
@@ -109,7 +109,7 @@
               />
             </label>
           </div>
-          <!-- form field -->
+          <!-- county form field -->
           <div class="flex flex-col">
             <label class="block">
               <span class="text-gray-700">County</span>
@@ -121,7 +121,7 @@
               />
             </label>
           </div>
-          <!-- form field -->
+          <!-- zip form field -->
           <div class="flex flex-col">
             <label class="block">
               <span class="text-gray-700">Zip Code</span>
@@ -140,7 +140,7 @@
 
         <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10">
           <h2 class="text-2xl font-bold">Organization</h2>
-          <!-- form field -->
+          <!-- org form field -->
           <div class="flex flex-col">
             <label class="block">
               <span class="text-gray-700">Organization ID</span>
@@ -159,7 +159,7 @@
 
         <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10">
           <h2 class="text-2xl font-bold">Attendee</h2>
-          <!-- form field -->
+          <!-- attendee form field -->
           <div class="flex flex-col">
             <label class="block">
               <span class="text-gray-700">Attendee ID</span>
@@ -174,7 +174,7 @@
         </div>
 
 
-
+        <!--button to add new event to system-->
         <div class="flex justify-between mt-10 mr-20">
           <button class="bg-red-700 text-white rounded" type="submit">Add New Event</button>
         </div>

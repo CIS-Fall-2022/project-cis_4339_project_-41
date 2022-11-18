@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-
+//gps
 const routes = [
     {
         path: '/',

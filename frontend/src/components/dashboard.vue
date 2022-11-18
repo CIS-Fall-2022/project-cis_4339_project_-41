@@ -24,15 +24,20 @@ export default {
     const ctx = document.getElementById('myChart');
 
 const myChart = new Chart(ctx, {
+  //Bar chart
   type: 'bar',
   data: {
+    //X axis lables
     labels: ['Org A', 'Org B', 'Org C'],
     datasets: [{
+      //title
       label: "# of Events per Org",
+      //data for the chart
       data: [5, 13, 7]
     }]
   },
   options: {
+    //y axis start counting from 0 to nth number
     scales: {
       y: {
         beginAtZero: true

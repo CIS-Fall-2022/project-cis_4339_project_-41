@@ -1,13 +1,14 @@
 <template>
   <main>
     <div>
+      <!--Page title Update Events-->
       <h1 class="font-bold text-4xl text-red-700 tracking-widest text-center mt-10">Update Event</h1>
     </div>
     <div class="px-10 py-20">
       <form @submit.prevent="handleSubmitForm">
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10">
           <h2 class="text-2xl font-bold">Event Details</h2>
-          <!-- form field -->
+          <!-- Next Event form field -->
           <div class="flex flex-col">
             <label class="block">
               <span class="text-gray-700">Event Name</span>
@@ -27,7 +28,7 @@
             </label>
           </div>
 
-          <!-- form field -->
+          <!-- Date form field -->
           <div class="flex flex-col">
             <label class="block">
               <span class="text-gray-700">Date</span>
@@ -49,7 +50,7 @@
 
           <div></div>
           <div></div>
-          <!-- form field -->
+          <!-- Description form field -->
           <div class="flex flex-col">
             <label class="block">
               <span class="text-gray-700">Description</span>
@@ -63,7 +64,7 @@
           <div></div>
           <div></div>
           <div></div>
-          <!-- form field -->
+          <!-- Offered Services form field -->
           <div class="flex flex-col grid-cols-3">
             <label>Services Offered at Event</label>
             <div>
@@ -76,6 +77,7 @@
                   class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50"
                   notchecked
                 />
+                <!--return selection for services-->
                 <span class="ml-2">Family Support</span>
               </label>
             </div>
@@ -89,6 +91,7 @@
                   class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50"
                   notchecked
                 />
+                <!--return selection for adult education-->
                 <span class="ml-2">Adult Education</span>
               </label>
             </div>
@@ -102,6 +105,7 @@
                   class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50"
                   notchecked
                 />
+                <!--return selection for youth education-->
                 <span class="ml-2">Youth Services Program</span>
               </label>
             </div>
@@ -115,6 +119,7 @@
                   class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50"
                   notchecked
                 />
+                <!--return selection for childhood education-->
                 <span class="ml-2">Early Childhood Education</span>
               </label>
             </div>
@@ -124,7 +129,7 @@
         <!-- grid container -->
         <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10">
           <h2 class="text-2xl font-bold">Address</h2>
-          <!-- form field -->
+          <!-- address 1 form field -->
           <div class="flex flex-col">
             <label class="block">
               <span class="text-gray-700">Address Line 1</span>
@@ -136,7 +141,7 @@
               />
             </label>
           </div>
-          <!-- form field -->
+          <!-- address 2 form field -->
           <div class="flex flex-col">
             <label class="block">
               <span class="text-gray-700">Address Line 2</span>
@@ -148,7 +153,7 @@
               />
             </label>
           </div>
-          <!-- form field -->
+          <!-- city form field -->
           <div class="flex flex-col">
             <label class="block">
               <span class="text-gray-700">City</span>
@@ -161,7 +166,7 @@
             </label>
           </div>
           <div></div>
-          <!-- form field -->
+          <!-- county form field -->
           <div class="flex flex-col">
             <label class="block">
               <span class="text-gray-700">County</span>
@@ -173,7 +178,7 @@
               />
             </label>
           </div>
-          <!-- form field -->
+          <!-- zip form field -->
           <div class="flex flex-col">
             <label class="block">
               <span class="text-gray-700">Zip Code</span>
@@ -188,6 +193,7 @@
         </div>
 
         <!-- grid container -->
+        <!--update and back button for events page-->
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10">
           <div class="flex justify-between mt-10 mr-20">
             <button
