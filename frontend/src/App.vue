@@ -26,6 +26,12 @@
               </router-link>
             </li>
             <li>
+              <router-link to="/orgform">
+                <span style="position: relative; top: 6px" class="material-icons">work</span>
+                Create Organization
+              </router-link>
+            </li>
+            <li>
               <router-link to="/findclient">
                 <span style="position: relative; top: 6px" class="material-icons">search</span>
                 Find Client
@@ -35,6 +41,12 @@
               <router-link to="/findEvents">
                 <span style="position: relative; top: 6px" class="material-icons">search</span>
                 Find Event
+              </router-link>
+            </li>
+            <li>
+              <router-link to="/findOrg">
+                <span style="position: relative; top: 6px" class="material-icons">search</span>
+                Find Organization
               </router-link>
             </li>
           </ul>
