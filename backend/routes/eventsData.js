@@ -96,7 +96,7 @@ router.put("/:id", (req, res, next) => {
 
 //PUT add attendee to event
 router.put("/addAttendee/:id", (req, res, next) => {
-    //only add attendee if not yet signed up
+    //only add attendee if not yet signed uo
     eventdata.find( 
         { _id: req.params.id, attendees: req.body.attendee }, 
         (error, data) => { 
@@ -136,22 +136,6 @@ router.delete('/:id', (req, res, next) => {
             });
         }
     });
-});
-
-//GET amount of clients signed up for each event in the last 2 months
-router.get("/graph", (req, res, next) => { 
-    eventdata.aggregate([
-        { $match: { eventID: mongoose.Types.ObjectId(req.params.eventid) } },
-        { $project: { _id: 0 } },
-        { $group: { _id: "$attendees" } },
-        { $count: "total" }
-    ], (error, data) => {
-        if (error) {
-            return next(error)
-        } else {
-            res.json(data)
-        }
-    })
 });
 
 module.exports = router;
