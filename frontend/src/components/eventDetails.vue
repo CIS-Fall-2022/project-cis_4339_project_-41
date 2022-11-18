@@ -1,14 +1,13 @@
 <template>
   <main>
     <div>
-      <!--Page title Update Events-->
       <h1 class="font-bold text-4xl text-red-700 tracking-widest text-center mt-10">Update Event</h1>
     </div>
     <div class="px-10 py-20">
       <form @submit.prevent="handleSubmitForm">
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10">
           <h2 class="text-2xl font-bold">Event Details</h2>
-          <!-- Next Event form field -->
+          <!-- form field -->
           <div class="flex flex-col">
             <label class="block">
               <span class="text-gray-700">Event Name</span>
@@ -28,7 +27,7 @@
             </label>
           </div>
 
-          <!-- Date form field -->
+          <!-- form field -->
           <div class="flex flex-col">
             <label class="block">
               <span class="text-gray-700">Date</span>
@@ -50,86 +49,27 @@
 
           <div></div>
           <div></div>
-          <!-- Description form field -->
+          <!-- form field -->
           <div class="flex flex-col">
             <label class="block">
               <span class="text-gray-700">Description</span>
-              <textarea
+              <input
+                type="text"
                 class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                 rows="2"
-              ></textarea>
+                v-model="event.description"
+              />
             </label>
           </div>
-
           <div></div>
           <div></div>
           <div></div>
-          <!-- Offered Services form field -->
-          <div class="flex flex-col grid-cols-3">
-            <label>Services Offered at Event</label>
-            <div>
-              <label for="familySupport" class="inline-flex items-center">
-                <input
-                  type="checkbox"
-                  id="familySupport"
-                  value="Family Support"
-                  v-model="checkedServices"
-                  class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50"
-                  notchecked
-                />
-                <!--return selection for services-->
-                <span class="ml-2">Family Support</span>
-              </label>
-            </div>
-            <div>
-              <label for="adultEducation" class="inline-flex items-center">
-                <input
-                  type="checkbox"
-                  id="adultEducation"
-                  value="Adult Education"
-                  v-model="checkedServices"
-                  class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50"
-                  notchecked
-                />
-                <!--return selection for adult education-->
-                <span class="ml-2">Adult Education</span>
-              </label>
-            </div>
-            <div>
-              <label for="youthServices" class="inline-flex items-center">
-                <input
-                  type="checkbox"
-                  id="youthServices"
-                  value="Youth Services Program"
-                  v-model="checkedServices"
-                  class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50"
-                  notchecked
-                />
-                <!--return selection for youth education-->
-                <span class="ml-2">Youth Services Program</span>
-              </label>
-            </div>
-            <div>
-              <label for="childhoodEducation" class="inline-flex items-center">
-                <input
-                  type="checkbox"
-                  id="childhoodEducation"
-                  value="Early Childhood Education"
-                  v-model="checkedServices"
-                  class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50"
-                  notchecked
-                />
-                <!--return selection for childhood education-->
-                <span class="ml-2">Early Childhood Education</span>
-              </label>
-            </div>
-          </div>
         </div>
 
         <!-- grid container -->
         <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10">
           <h2 class="text-2xl font-bold">Address</h2>
-          <!-- address 1 form field -->
+          <!-- form field -->
           <div class="flex flex-col">
             <label class="block">
               <span class="text-gray-700">Address Line 1</span>
@@ -141,19 +81,7 @@
               />
             </label>
           </div>
-          <!-- address 2 form field -->
-          <div class="flex flex-col">
-            <label class="block">
-              <span class="text-gray-700">Address Line 2</span>
-              <input
-                type="text"
-                class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                placeholder
-                v-model="event.address.line2"
-              />
-            </label>
-          </div>
-          <!-- city form field -->
+          <!-- form field -->
           <div class="flex flex-col">
             <label class="block">
               <span class="text-gray-700">City</span>
@@ -166,19 +94,19 @@
             </label>
           </div>
           <div></div>
-          <!-- county form field -->
+          <!-- form field -->
           <div class="flex flex-col">
             <label class="block">
-              <span class="text-gray-700">County</span>
+              <span class="text-gray-700">State</span>
               <input
                 type="text"
                 class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                 placeholder
-                v-model="event.address.county"
+                v-model="event.address.state"
               />
             </label>
           </div>
-          <!-- zip form field -->
+          <!-- form field -->
           <div class="flex flex-col">
             <label class="block">
               <span class="text-gray-700">Zip Code</span>
@@ -193,7 +121,6 @@
         </div>
 
         <!-- grid container -->
-        <!--update and back button for events page-->
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10">
           <div class="flex justify-between mt-10 mr-20">
             <button
@@ -201,6 +128,13 @@
               type="submit"
               class="bg-red-700 text-white rounded"
             >Update Event</button>
+          </div>
+          <div class="flex justify-between mt-10 mr-20">
+            <button
+              @click="handleEventDelete"
+              type="submit"
+              class="bg-red-700 text-white rounded"
+            >Delete Event</button>
           </div>
           <div class="flex justify-between mt-10 mr-20">
             <button
@@ -266,13 +200,11 @@ export default {
       checkedServices: [],
       event: {
         eventName: "",
-        services: [],
         date: "",
         address: {
           line1: "",
-          line2: "",
           city: "",
-          county: "",
+          state: "",
           zip: "",
         },
         description: "",
@@ -321,6 +253,16 @@ export default {
       let apiURL = import.meta.env.VITE_ROOT_API + `/eventdata/${this.id}`;
       axios.put(apiURL, this.event).then(() => {
         alert("Update has been saved.");
+        this.$router.back().catch((error) => {
+          console.log(error);
+        });
+      });
+    },
+    handleEventDelete() {
+      this.event.services = this.checkedServices;
+      let apiURL = import.meta.env.VITE_ROOT_API + `/eventdata/${this.id}`;
+      axios.delete(apiURL, this.event).then(() => {
+        alert("Event has been deleted.");
         this.$router.back().catch((error) => {
           console.log(error);
         });
