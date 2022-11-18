@@ -13,7 +13,6 @@ export default {
     return {
       client: {
         firstName: "",
-        middleName: "",
         lastName: "",
         email: "",
         phoneNumbers: [
@@ -24,11 +23,11 @@ export default {
         ],
         address: {
           line1: "",
-          line2: "",
           city: "",
-          county: "",
+          state: "",
           zip: "",
         },
+        orgID: "",
       },
     };
   },
@@ -46,7 +45,6 @@ export default {
             this.$router.push("/findclient");
             this.client = {
               firstName: "",
-              middleName: "",
               lastName: "",
               email: "",
               phoneNumbers: [
@@ -57,11 +55,11 @@ export default {
               ],
               address: {
                 line1: "",
-                line2: "",
                 city: "",
-                county: "",
+                state: "",
                 zip: "",
               },
+              orgID: "",
             };
           })
           .catch((error) => {
@@ -116,19 +114,6 @@ export default {
                   :key="error.$uid"
                 >{{ error.$message }}!</p>
               </span>
-            </label>
-          </div>
-
-          <!-- form field -->
-          <div class="flex flex-col">
-            <label class="block">
-              <span class="text-gray-700">Middle Name</span>
-              <input
-                type="text"
-                class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                placeholder
-                v-model="client.middleName"
-              />
             </label>
           </div>
 
@@ -205,7 +190,20 @@ export default {
               />
             </label>
           </div>
+          <!-- form field -->
+          <div class="flex flex-col">
+            <label class="block">
+              <span class="text-gray-700">Organization ID</span>
+              <input
+                type="text"
+                class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
+                v-model="client.orgID"
+              />
+            </label>
+          </div>
         </div>
+        
 
         <!-- grid container -->
         <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10">
@@ -218,17 +216,6 @@ export default {
                 type="text"
                 class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                 v-model="client.address.line1"
-              />
-            </label>
-          </div>
-          <!-- form field -->
-          <div class="flex flex-col">
-            <label class="block">
-              <span class="text-gray-700">Address Line 2</span>
-              <input
-                type="text"
-                class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                v-model="client.address.line2"
               />
             </label>
           </div>
@@ -255,11 +242,11 @@ export default {
           <!-- form field -->
           <div class="flex flex-col">
             <label class="block">
-              <span class="text-gray-700">County</span>
+              <span class="text-gray-700">State</span>
               <input
                 type="text"
                 class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                v-model="client.address.county"
+                v-model="client.address.state"
               />
             </label>
           </div>
