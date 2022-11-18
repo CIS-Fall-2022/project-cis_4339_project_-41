@@ -16,7 +16,7 @@ let primaryDataSchema = new Schema({
     email: {
         type: String
     },
-    phoneNumber: {
+    phoneNumbers: {
         type: Array,
         required: true
     },
@@ -31,15 +31,12 @@ let primaryDataSchema = new Schema({
         state: {
             type: String,
         },
-        county: {
-            type: String,
-        },
         zip: {
             type: String,
+        },
+        orgID: {
+            type: String
         }
-    },
-    orgID: {
-        type: String
     },
 }, {
     collection: 'primaryData',
@@ -64,7 +61,7 @@ let eventDataSchema = new Schema({
         city: {
             type: String,
         },
-        county: {
+        state: {
             type: String,
         },
         zip: {
@@ -79,7 +76,7 @@ let eventDataSchema = new Schema({
     }],
     orgID: {
         type: String
-    },
+    }
 }, {
     collection: 'eventData'
 });
