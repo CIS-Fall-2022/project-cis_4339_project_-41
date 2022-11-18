@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-//gps
+
 const routes = [
     {
         path: '/',
@@ -39,6 +39,23 @@ const routes = [
         name: 'eventdetails',
         props: true,
         component: () => import('../components/eventDetails.vue')
+    },
+    {
+        path: '/orgform',
+        name: 'orgform',
+        props: true,
+        component: () => import('../components/orgForm.vue')
+    },
+    {
+        path: '/findOrg',
+        name: 'findOrg',
+        component: () => import('../components/findOrg.vue')
+    },
+    {
+        path: '/updateOrg/:id',
+        name: 'updateorg',
+        props: true,
+        component: () => import('../components/updateOrg.vue')
     }
 ]
 const router = createRouter({
