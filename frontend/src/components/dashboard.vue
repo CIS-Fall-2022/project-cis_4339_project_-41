@@ -3,7 +3,42 @@
     <div>
       <h1 class="font-bold text-4xl text-red-700 tracking-widest text-center mt-10">Welcome</h1>
       <!--canvas used to draw chart dimensions-->
-      <canvas id="myChart"></canvas>
+      <canvas id="myChart"></canvas> 
+    <!-- Display Table -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10">
+      <div class="ml-10">
+        <h2 class="text-2xl font-bold">List of Orgs</h2>
+        <h3 class="italic">Clients signed up for events that happened in the last 2 months.</h3>
+      </div>
+      <div class="flex flex-col col-span-2">
+        <table class="min-w-full shadow-md rounded">
+          <thead class="bg-gray-50 text-xl">
+            <tr>
+              <th class="p-4 text-left">Org Name</th>
+              <th class="p-4 text-left"># signed up</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-300">
+            <tr>
+              <td class="p-2 text-left">Org A</td>
+              <td class="p-2 text-left">{{orga}}</td>
+            </tr>
+          </tbody>
+          <tbody class="divide-y divide-gray-300">
+            <tr>
+              <td class="p-2 text-left">Org B</td>
+              <td class="p-2 text-left">{{orgb}}</td>
+            </tr>
+          </tbody>
+          <tbody class="divide-y divide-gray-300">
+            <tr>
+              <td class="p-2 text-left">Org C</td>
+              <td class="p-2 text-left">{{orgc}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
     </div>
   </main>
 </template>
@@ -16,7 +51,10 @@ export default {
   name: "App",
   data(){
     return{
-    graphData: []
+    graphData: [],
+    orga: '5',
+    orgb: '3',
+    orgc: '7',
     }
   },
   methods: {
@@ -50,7 +88,7 @@ const myChart = new Chart(ctx, {
     labels: ['Org A', 'Org B', 'Org C'],
     datasets: [{
       //title
-      label: "# of Events per Org",
+      label: "# of clients signed up",
       //data for the chart
       data: [5, 13, 7]
     }]
