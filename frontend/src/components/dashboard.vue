@@ -10,11 +10,30 @@
 <script>
 //import controllers, elements, scales, and plugins for Chart
 import Chart from 'chart.js/auto';
+import axios from 'axios';
 
 export default {
+  name: "App",
+  data(){
+    return{
+    graphData: []
+    }
+  },
   methods: {
     routePush(routeName) {
       this.$router.push({ name: routeName });
+    },
+    graphGet() {
+      //get the data for the graph
+      let apiURL = import.meta.env.VITE_ROOT_API + `/eventdata/dashboard"`;
+      this.queryData = [];
+      axios.get(apiURL).then((resp) => {
+        this.queryData = resp.data;
+        this.$router.back().catch((error) => {
+          console.log(error);
+          alert(error); // improved error handling by alerting on the frontend also
+        });
+      });
     },
   },
   //mounting the demo chart
