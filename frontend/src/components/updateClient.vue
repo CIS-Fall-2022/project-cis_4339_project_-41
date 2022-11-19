@@ -97,6 +97,7 @@ export default {
         alert("Update has been saved.");
         this.$router.back().catch((error) => {
           console.log(error);
+          alert(error); // improved error handling by alerting on the frontend also
         });
       });
     },
@@ -106,6 +107,7 @@ export default {
         alert("Client has been deleted.");
         this.$router.back().catch((error) => {
           console.log(error);
+          alert(error); // improved error handling by alerting on the frontend also
         });
       });
     },
@@ -123,8 +125,13 @@ export default {
             .then((resp) => {
               let data = resp.data;
               for (let i = 0; i < data.length; i++) {
+                alert("Client has been added to event.");
                 this.clientEvents.push({
                   eventName: data[i].eventName,
+                });
+                this.$router.back().catch((error) => {
+                  console.log(error);
+                  alert(error); // improved error handling by alerting on the frontend also
                 });
               }
             });
