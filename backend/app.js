@@ -26,6 +26,10 @@ mongoose
 //declare port number for the api
 const PORT = process.env.PORT || 3000;
 
+//declare org instance
+const ORGID = process.env.ORGID;
+module.exports = {ORGID}
+
 //setup
 app.use(express.json());
 app.use(morgan("dev"));
