@@ -91,6 +91,7 @@ export default {
           })
           .catch((error) => {
             console.log(error);
+            alert(error); // improved error handling by alerting on the frontend also
           });
       }
     },
