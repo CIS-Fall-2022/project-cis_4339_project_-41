@@ -33,10 +33,10 @@ let primaryDataSchema = new Schema({
         },
         zip: {
             type: String,
-        },
-        orgID: {
-            type: String
         }
+    },
+    orgID: {
+        type: String,
     },
 }, {
     collection: 'primaryData',
